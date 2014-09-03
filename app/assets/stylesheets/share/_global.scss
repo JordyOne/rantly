@@ -1,0 +1,46 @@
+#banner_logo_styling {
+  font-size: 40px;
+  font-family: Papyrus, fantasy;
+  vertical-align: middle;
+  line-height: 100px;
+}
+
+#logo_styling {
+    font-size: 80px;
+    font-family: Papyrus, fantasy;
+    vertical-align: middle;
+    height: 80%;
+    border: solid;
+}
+
+.wrapper {
+    margin: auto;
+    width: 980px;
+}
+
+/* clearfix */
+.clearfix:before,
+.clearfix:after { content: " "; display: table; }
+
+.clearfix:after { clear: both; }
+
+/* * For IE 6/7 only * Include this rule to trigger hasLayout and contain floats.*/
+.clearfix { *zoom: 1; }
+
+article {
+    position:relative;
+    margin-left:20px;
+    margin-bottom:16px;
+    float:left;
+}
+
+/* ----- =columns ----- */
+
+.one_half { 	 width:50%; }
+.one_third {	 width:33%; }
+.two_third {	 width:66%; }
+.one_fourth {	 width:25%; }
+.three_fourth { width:75%; }
+.full_column {	 width:100%; }
+.one_eighth {    width:12%;}
+.seven_eighths { width:80%;}

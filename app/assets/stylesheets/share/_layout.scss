@@ -1,0 +1,39 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+}
+
+#nav_button {
+  float: right;
+  line-height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 20px;
+}
+
+#join_button {
+  float: right;
+  width: 80px;
+  height: 40px;
+  box-shadow: 5px 5px 5px #888888;
+  background-color: greenyellow;
+}
+
+header {
+  background-color: #ffffff; /* White */
+}
+
+nav {
+  background-color: dimgray; /* dark blue */
+  height: 100px;
+}
+
+footer {
+  background-color: black; /* Grey */
+  height: 100px;
+  position: absolute;
+  width: 100%;
+}
