@@ -44,3 +44,20 @@ article {
 .full_column {	 width:100%; }
 .one_eighth {    width:12%;}
 .seven_eighths { width:80%;}
+
+.form {
+  margin: auto;
+  font-family: Papyrus, fantasy;
+  border: solid;
+  input{
+    width: 60%;
+    padding-left: 20px;
+    margin: auto;
+  }
+  h2{
+    font-size: 20px;
+    text-align: center;
+    padding-right: 20px;
+  }
+}
+

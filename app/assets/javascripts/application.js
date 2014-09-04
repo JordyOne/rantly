@@ -29,10 +29,5 @@ $(document).ready(function(){
             }
         });
     });
-    $('join_button').on('click', function(){
-        $.ajax ({
-            type: "Get",
-            url: new_user_path
-        });
-    })
+//#next code
 });

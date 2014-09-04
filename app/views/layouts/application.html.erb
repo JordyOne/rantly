@@ -2,33 +2,36 @@
 <html>
 <head>
   <title>Rantly</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="">
+<body>
 <nav>
   <div>
     <article class="one_eighth" id="logo_container">
-    <a href=""  id="banner_logo_styling">Rant.ly</a>
+      <a href="" id="banner_logo_styling">Rant.ly</a>
     </article>
     <article class="seven_eighths">
-        <div style=""><button id="join_button">Join</button></div>
-        <a href="" id="nav_button">Login</a>
+      <div style="">
+        <form action="<%= new_user_path %>">
+          <button id="join_button" type="submit">Join</button>
+        </form>
+      </div>
+      <a href="" id="nav_button">Login</a>
     </article>
-  </div><!-- END wrapper -->
+  </div>
+  <!-- END wrapper -->
 </nav>
 
 
-<div>
-<%= yield %>
+<div class="div-wrap">
+  <%= yield %>
 </div>
 
+
+<footer></footer>
 </body>
-
-<footer>
-
-</footer>
 </html>
 
 

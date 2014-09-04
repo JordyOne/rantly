@@ -3,7 +3,8 @@
 }
 
 body {
-  background-color: #ffffff;
+  height: 100%;
+  background-color:#ffffff;
 }
 
 #nav_button {
@@ -31,9 +32,24 @@ nav {
   height: 100px;
 }
 
-footer {
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.site-footer .page-wrap:after {
   background-color: black; /* Grey */
-  height: 100px;
+  height: 142px;
   position: absolute;
   width: 100%;
+}
+
+.site-footer {
+  background-color: black; /* Grey */
 }
