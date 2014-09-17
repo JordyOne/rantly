@@ -16,18 +16,5 @@
 //= require_tree .
 
 
-$(document).ready(function(){
-    $(function () {
-        $.ajax ({
-            type: "GET",
-            url: '/api/rants',
-            success: function(rants) {
-                $.each(rants, function (i, rant){
-                    $('#rant-list').append('<li id="rant-item">' +
-                        rant.text);
-                })
-            }
-        });
-    });
-//#next code
+$(document).ready(function() {
 });
