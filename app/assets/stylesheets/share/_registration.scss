@@ -1,0 +1,21 @@
+#registration-body {
+  flex-basis: 100%;
+  min-height: 300px;
+  height: auto;
+  background: #939494;
+  justify-content: center;
+}
+
+.flex-container-login {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: white;
+}
+
+.flex-login-item {
+
+}

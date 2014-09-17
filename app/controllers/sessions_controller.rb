@@ -6,20 +6,30 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
+    @user = current_user
+    if current_user && current_user.authenticate(allowed_parameters[:password])
+      p session_id
+      flash[:notice] = "You are signed in"
       redirect_to root_path
-    else
-      @user = User.new(email: params[:user][:email])
-      @user.errors[:base] << "Username / password is invalid"
-      render :new
     end
   end
 
   def destroy
     session.destroy
-    redirect_to signin_path
+    redirect_to new_session_path
   end
 
+  private
+
+  def current_user
+    @user = User.find_by(username: allowed_parameters[:username])
+  end
+
+  def allowed_parameters
+    params.require(:user).permit(:username, :password)
+  end
+
+  def session_id
+    session[:user_id] = current_user[:id]
+  end
 end

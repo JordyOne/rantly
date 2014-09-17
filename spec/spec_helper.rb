@@ -58,7 +58,7 @@ RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     # Enable only the newer, non-monkey-patching expect syntax.
     # For more details, see:
-    #   - http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax
+    #   - http://myronmars.to/n/dev-blog/2012/06/rspecs-new.html.erb-expectation-syntax
     expectations.syntax = :expect
   end
 
@@ -67,7 +67,7 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     # Enable only the newer, non-monkey-patching expect syntax.
     # For more details, see:
-    #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/
+    #   - http://teaisaweso.me/blog/2013/05/27/rspecs-new.html.erb-message-expectation-syntax/
     mocks.syntax = :expect
 
     # Prevents you from mocking or stubbing a method that does not exist on

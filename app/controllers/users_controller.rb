@@ -4,6 +4,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    #left off createing users for the users table
+    @user = User.create(allowed_params)
+    if @user.save
+      flash[:notice] = "Thank you for registering"
+      redirect_to sessions_path
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def allowed_params
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency)
   end
 end

@@ -30,21 +30,6 @@ article {
   float: left;
 }
 
-.form {
-  margin: auto;
-  font-family: Papyrus, fantasy;
-  height: auto;
-  input {
-    width: 60%;
-    padding-left: 20px;
-    margin: auto;
-  }
-  h2 {
-    font-size: 20px;
-    text-align: center;
-    padding-right: 20px;
-  }
-}
 
 .flex-container {
   display: flex;
@@ -53,15 +38,6 @@ article {
   align-items: stretch;
 }
 
-
-.flex-container-login {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: stretch;
-}
 .flex-container-splash {
   display: flex;
   flex-direction: column;
@@ -155,7 +131,7 @@ article {
 }
 
 #body{
-  flex-basis: 98%;
+  flex-basis: 100%;
   min-height: 300px;
   height: auto;
   background: #ffffff;

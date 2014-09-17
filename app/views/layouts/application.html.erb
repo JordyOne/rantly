@@ -16,21 +16,26 @@
 
   <div class="flex-item" id="header-container-buttons">
     <div>
-      <%= link_to "Login", new_user_path, id: "login-button" %>
+      <% if session[:user_id] %>
+          <%= link_to "Logout", session_path(session[:user_id]), :method => :delete, id: "login-button" %>
+      <% else %>
+          <%= link_to "Login", new_session_path, id: "login-button" %>
+      <% end %>
     </div>
     <div>
       <form action="<%= new_user_path %>">
-      <button type="submit" id="join_button">Join</button>
+        <button type="submit" id="join_button">Join</button>
       </form>
     </div>
   </div>
 </div>
+<div>
+  <%= flash[:notice] %>
+</div>
 
+<div><%= session[:user_id] %></div>
 
-
-  <%= yield %>
-
-
+<%= yield %>
 
 
 </body>

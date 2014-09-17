@@ -1,0 +1,26 @@
+<div class="flex-container" id="registration-body">
+  <div class="flex-container-login">
+    <div class="flex-item-center" id="title"><h2>Login</h2></div>
+    <div class="flex-item-center">
+      <%= form_for @user, url: sessions_path do |f| %>
+
+          <% if f.object.errors.any? %>
+              <div class="error">Your Username/Password could not be created</div>
+          <% end %>
+          <div>
+            <%= f.label :username %>
+            <%= f.text_field :username %>
+          </div>
+
+          <div>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </div>
+          <div>
+            <%= f.submit "Login" %>
+          </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
