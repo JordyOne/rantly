@@ -1,26 +1,25 @@
-<div class="one_half form">
-<h2>Register</h2>
+<div class="flex-container-login" id="body">
+  <div class="flex-item-center" id="title"><h2>Register</h2></div>
+  <div class="flex-item-center">
+    <%= form_for @user do |f| %>
 
-<%= form_for @user do |f| %>
+        <% if f.object.errors.any? %>
+            <div class="error">Your Username/Password could not be created</div>
+        <% end %>
+        <div>
+          <%= f.label :username %>
+          <%= f.email_field :username %>
+        </div>
 
+        <div>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </div>
 
-    <% if f.object.errors.any? %>
-        <div class="error">Your Username/Password could not be created</div>
+        <div>
+          <%= f.submit %>
+        </div>
+
     <% end %>
-    <div>
-      <%= f.label :username %>
-      <%= f.email_field :username %>
-    </div>
-
-    <div>
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-
-    <div>
-      <%= f.label :Register %>
-      <%= f.submit :submit %>
-    </div>
-
-<% end %>
+  </div>
 </div>

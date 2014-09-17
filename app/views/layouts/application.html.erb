@@ -6,33 +6,61 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<nav>
-  <div>
-    <article class="one_eighth" id="logo_container">
-      <a href="" id="banner_logo_styling">Rant.ly</a>
-    </article>
-    <article class="seven_eighths">
-      <div style="">
-        <form action="<%= new_user_path %>">
-          <button id="join_button" type="submit">Join</button>
-        </form>
-      </div>
-      <a href="" id="nav_button">Login</a>
-    </article>
+<body class="flex-container">
+<div class="flex-item" id="header">
+  <div class="flex-item" id="header-container">
+    <div id="banner_logo_styling">
+      Rant.ly
+    </div>
   </div>
-  <!-- END wrapper -->
-</nav>
+
+  <div class="flex-item" id="header-container-buttons">
+    <div>
+      <%= link_to "Login", new_user_path, id: "login-button" %>
+    </div>
+    <div>
+      <button id="join_button">Join</button>
+    </div>
+  </div>
+</div>
 
 
-<div class="div-wrap">
+<div class="flex-container" id="body">
   <%= yield %>
 </div>
 
 
-<footer></footer>
+<footer class="flex-container-footer" id="footer">
+  <div class="flex-item-center">
+    <img src="/images/profile.jpg" class="footer-image">
+    <div class="flex-item-center-footer" id="paragraph">
+      <p>"Rantly has allowed a certain freedom I never thought possible. Now I can rant<br>
+      to the internet at large, without having to worry about my thoughts. I just type it<br>
+      out, hit click, and feel the surge of relief. Thanks Rantly, you've truly made my<br>
+      most inane rants heard. I remember a time when I wasn't able to truly express<br>
+      myself. It's really frustrating when you want to be heard and no one..."<br>
+      </p><br>
+      <p>
+        | Jeff Taggart, avid Ranter
+      </p>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
 
 
-
+<!--<div>-->
+<!--<article class="one_eighth" id="logo_container">-->
+<!--<a href="" id="banner_logo_styling">Rant.ly</a>-->
+<!--</article>-->
+<!--<article class="seven_eighths">-->
+<!--<div style="">-->
+<!--<form action="<%= new_user_path %>">-->
+<!--<button id="join_button" type="submit">Join</button>-->
+<!--</form>-->
+<!--</div>-->
+<!--<a href="" id="nav_button">Login</a>-->
+<!--</article>-->
+<!--</div>-->
+<!-- END wrapper -->
