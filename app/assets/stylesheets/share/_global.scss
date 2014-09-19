@@ -2,7 +2,7 @@
   font-size: 40px;
   font-family: Comic Sans MS;
   vertical-align: middle;
-  line-height: 150px;
+  line-height: 130px;
   color: #ffffff;
   width: 150px;
   border-right: 3px solid #0c690d;
@@ -46,6 +46,14 @@ article {
   align-content: center;
   align-items: stretch;
 }
+.flex-container-body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: stretch;
+}
 .flex-container-footer {
   display: flex;
   flex-direction: row;
@@ -53,6 +61,17 @@ article {
   justify-content: center;
   align-content: center;
   align-items: stretch;
+}
+
+.flex-item-user-body {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: flex-start;
+  border-radius: 5px;
+  padding: 15px;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 
@@ -151,4 +170,15 @@ article {
     color: white;
     font-family: Comic Sans MS;
   }
+}
+
+#user-body {
+  flex-basis: 60%;
+  background: white;
+}
+
+#user-profile {
+  background: #939494;
+  flex-basis: 100%;
+  align-content: flex-start;
 }

@@ -1,0 +1,29 @@
+<div class="flex-container-body" id="user-profile">
+<div class="flex-container-splash" >
+<div class="flex-container" id="logo-styling">
+  <a href="<%= edit_user_path %>" class="flex-item-center"><%= full_name(@user) %></a>
+
+</div>
+
+<img src="/images/profile.jpg" class="footer-image">
+
+<%= form_for [@user, @rant] do |form| %>
+    <div>
+      <%= form.label "A Rant About:" %>
+      <%= form.text_field :title %>
+    </div>
+    <div>
+    <%= form.label "Rant:" %>
+    <%= form.text_area :text %>
+    </div>
+    <div>
+    <%= form.submit "Rant" %>
+    </div>
+
+<% end %>
+</div>
+<div class="flex-container-user-body" id="user-body">
+  <h1>Rants</h1>
+  <%= render partial: "user", locals: {rants: @user.rants} %>
+</div>
+</div>
