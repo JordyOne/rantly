@@ -1,0 +1,15 @@
+.flex-container-splash {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+}
+
+#tagline-styling {
+  font-size: 20px;
+  font-family: Comic Sans MS;
+  vertical-align: middle;
+  height: 80%;
+}

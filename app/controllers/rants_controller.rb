@@ -8,6 +8,11 @@ class RantsController < ApplicationController
     redirect_to user_path(allowed_parameters[:user_id])
   end
 
+  def destroy
+    Rant.find_by(id: params[:id]).destroy
+    redirect_to user_path(params[:user_id])
+  end
+
   private
 
   def allowed_parameters

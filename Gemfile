@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 # database gem
 gem 'pg'
 
+# testing moddel validity
+gem 'factory_girl_rails', '~> 4.0'
 
 group :development, :test do
   gem 'rspec-rails'

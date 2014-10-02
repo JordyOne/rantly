@@ -1,4 +1,21 @@
+#banner_logo_styling {
+  font-size: 40px;
+  font-family: Comic Sans MS;
+  vertical-align: middle;
+  line-height: 130px;
+  color: #ffffff;
+  width: 150px;
+  border-right: 3px solid #0c690d;
+  padding-left: 5px;
+}
 
+
+#logo_styling {
+  font-size: 80px;
+  font-family: Comic Sans MS;
+  vertical-align: middle;
+  height: 80%;
+}
 
 body {
   height: 100%;
@@ -15,4 +32,33 @@ body {
   color: white;
 }
 
+#header-container {
+  height: auto;
+  width: 150px;
+  flex-basis: 150px;
+}
+
+#header-container-middle {
+  height: auto;
+  width: auto;
+  flex-basis: 300px;
+}
+
+#header-container-buttons {
+  flex-basis: 400px;
+}
+
+#login-button {
+  color: white;
+  font-size: 25px;
+  width: 150px;
+  float: right;
+  padding: 50px;
+}
+
+#header {
+  flex-basis: 98%;
+  height: 100px;
+  background: #333333;
+}
 

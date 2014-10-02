@@ -8,15 +8,16 @@ class UsersController < ApplicationController
     if @user.save
       flash[:notice] = "Thank you for registering"
       session[:user_id] = @user.id
-      redirect_to user_path(@user.id)
+      redirect_to user_path(session[:user_id])
     else
       render :new
     end
   end
 
   def show
-    @user = User.find_by(id: params[:id])
-    @rant = Rant.new
+    @user = User.find_by(id: session[:user_id])
+    @users = User.where('id != ?', @user.id)
+    @rant = Rant.new # initialized Rant for form_for
   end
 
   def edit

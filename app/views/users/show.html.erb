@@ -7,6 +7,8 @@
 
 <img src="/images/profile.jpg" class="footer-image">
 
+<%= render partial: "follow_stats", locals: {user: @user} %>
+
 <%= form_for [@user, @rant] do |form| %>
     <div>
       <%= form.label "A Rant About:" %>
@@ -23,7 +25,9 @@
 <% end %>
 </div>
 <div class="flex-container-user-body" id="user-body">
-  <h1>Rants</h1>
-  <%= render partial: "user", locals: {rants: @user.rants} %>
+  <h1>Latest Rants</h1>
+  <%= render partial: "latest_rants", locals: {users: @users} %>
+  <h1>My Rants</h1>
+  <%= render partial: "user_rants", locals: {rants: @user.rants} %>
 </div>
 </div>

@@ -1,0 +1,4 @@
+<% rants.each do |rant| %>
+    <%= rant.text %><br>
+    <%= link_to "Delete",  user_rant_path(params[:id], rant.id), :method => :delete%>
+<% end %>
