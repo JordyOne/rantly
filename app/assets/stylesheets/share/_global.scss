@@ -133,3 +133,22 @@ a { color: inherit;
   width: 100%;
   text-align: center;
 }
+
+#delete-link{
+  font-family: Papyrus, fantasy;
+  float: right;
+  margin-right: 50px;
+}
+
+.rant-container {
+  min-height: 150px;
+}
+
+.rant-title {
+  height: 30px;
+  flex-basis: auto;
+  font-family: Papyrus, fantasy;
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+}

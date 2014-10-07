@@ -29,9 +29,15 @@
             <%= f.text_area :bio %>
           </div>
           <div>
-            <%= f.label "How often do you rant?" %>
+            <%= f.label "How often do you rant?" %><br/>
+
+            <%= f.label "Daily" %>
             <%= f.radio_button :frequency, "Daily" %>
+
+            <%= f.label "Weekly" %>
             <%= f.radio_button :frequency, "Weekly" %>
+
+            <%= f.label "Monthly" %>
             <%= f.radio_button :frequency, "Monthly" %>
           </div>
 

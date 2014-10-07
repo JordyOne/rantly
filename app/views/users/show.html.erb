@@ -21,13 +21,15 @@
     <div>
     <%= form.submit "Rant" %>
     </div>
-
 <% end %>
+
 </div>
 <div class="flex-container-user-body" id="user-body">
-  <h1>Latest Rants</h1>
+  <h1 class="rant-title">Latest Rants</h1>
+  <hr>
   <%= render partial: "latest_rants", locals: {users: @users} %>
-  <h1>My Rants</h1>
+  <h1 class="rant-title">My Rants</h1>
+  <hr>
   <%= render partial: "user_rants", locals: {rants: @user.rants} %>
 </div>
 </div>
