@@ -5,7 +5,6 @@ default: &default
 
 development:
   <<: *default
-  username: user
   database:  rantly-development
 
 test:
