@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(allowed_params)
-    if @user.save
+    @user = User.create!(allowed_params) #added bang and relied on object for if statement vs. .save function
+    if @user
       flash[:notice] = "Thank you for registering"
       session[:user_id] = @user.id
       redirect_to user_path(session[:user_id])
