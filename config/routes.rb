@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  #you are about to create a follow button that refers to the users controller and uses the private methods of user class.
 
   resources :users do
     resources :rants

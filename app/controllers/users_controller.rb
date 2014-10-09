@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: session[:user_id])
-    @users = User.where('id != ?', @user.id)
+    @rants = Rant.where(:user_id != session[:user_id])
     @rant = Rant.new # initialized Rant for form_for
   end
 
@@ -32,6 +32,10 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "Your profile could not be saved"
     end
+  end
+
+  def following
+    @user = User.find_by(id: session[:user_id])
   end
 
   private

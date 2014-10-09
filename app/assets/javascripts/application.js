@@ -17,5 +17,7 @@
 
 
 $(document).ready(function() {
-
+    setTimeout(function(){
+        $('#flash-notice').hide()
+    }, 5000)
 });

@@ -1,6 +1,5 @@
-<% users.each do |user| %>
-    <% user.rants.each do |rant| %><br>
-        <%= rant.text %><br>
-        <%= link_to "Delete", user_rant_path(params[:id], rant.id), :method => :delete %>
-    <% end %>
+<% rants.each do |rant| %>
+    <%= full_name(rant.user) %><br>
+    <%= rant.text %><br>
+    <% link_to "Follow",
 <% end %>

@@ -16,8 +16,8 @@
 
   <% if session[:user_id] %>
       <div class="flex-item" id="header-container-middle">
-        <%= link_to "Dashboard", user_path(session[:user_id]) %>
-        <%= link_to "Following", followers_user_path(session[:user_id]) %>
+        <%= link_to "Dashboard", user_path(session[:user_id]), class: "header_link_styling" %>
+        <%= link_to "Following", following_user_path(session[:user_id]), class: "header_link_styling" %>
       </div>
   <% end %>
 
@@ -42,9 +42,7 @@
   <%= flash[:notice] %>
 </div>
 
-
 <%= yield %>
-
 
 </body>
 </html>

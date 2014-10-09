@@ -1,0 +1,43 @@
+.flex-container-profile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: stretch;
+}
+
+.rant-title-styling {
+  font-size: 40px;
+  font-family: Comic Sans MS;
+  height: 80%;
+  text-align: center;
+  padding: 10px;
+}
+
+.rant-body {
+  min-height: 150px;
+  padding: 10px;
+}
+
+#user-profile {
+  background: #939494;
+  flex-basis: 100%;
+  align-content: flex-start;
+  min-height: 580px;
+}
+
+.rant-delete-link {
+  float: right;
+  margin-right: 15px;
+  font-family: Comic Sans MS;
+  font-size: 15px;
+  color: red;
+}
+
+#user-body {
+  flex-basis: 60%;
+  background: white;
+  height: 85%;
+  margin-top: 15px;
+}
