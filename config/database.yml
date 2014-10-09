@@ -11,4 +11,10 @@ test:
   <<: *default
   database:  rantly-test
 
+production:
+  <<: *default
+  database: rantly_production
+  username: rantly
+  password: <%= ENV['RANTLY_DATABASE_PASSWORD'] %>
+
 
