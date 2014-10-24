@@ -8,9 +8,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: allowed_parameters[:username])
     if @user && @user.authenticate(allowed_parameters[:password])
-      session[:user_id] = @user.id
-      flash[:notice] = "You are signed in"
-      redirect_to user_path(@user.id)
+      sign_in_user
     else
       flash[:notice] = "Your Username / Password combination did not work"
       redirect_to new_session_path
@@ -27,6 +25,12 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def sign_in_user
+    session[:user_id] = @user.id
+    flash[:notice] = "You are signed in"
+    redirect_to user_path(@user.id)
+  end
 
   def allowed_parameters
     params.require(:user).permit(:username, :password)

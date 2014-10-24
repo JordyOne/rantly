@@ -4,29 +4,27 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create!(allowed_params) #added bang and relied on object for if statement vs. .save function
-    if @user
-      flash[:notice] = "Thank you for registering"
-      session[:user_id] = @user.id
-      redirect_to user_path(session[:user_id])
+    @user = User.create(allowed_params) #added bang and relied on object for if statement vs. .save function
+    if @user.persisted?
+      login_user
     else
       render :new
     end
   end
 
   def show
-    @user = User.find_by(id: session[:user_id])
-    @rants = Rant.where(:user_id != session[:user_id])
+    current_user
+    @rants = sorted_rants
     @rant = Rant.new # initialized Rant for form_for
+    @relationship = Relationship.new
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
+    current_user
   end
 
   def update
-    @user = User.find_by(id: params[:id])
-    if @user.update_attributes!(user_params)
+    if current_user.update_attributes(user_params)
       flash[:notice] = "Profile Updated"
       redirect_to user_path(@user.id)
     else
@@ -35,10 +33,18 @@ class UsersController < ApplicationController
   end
 
   def following
-    @user = User.find_by(id: session[:user_id])
+    current_user
+  end
+
+  def followers
+    current_user
   end
 
   private
+
+  def current_user
+    @user ||= User.find(session[:user_id]) if session[:user_id]
+  end
 
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :bio, :frequency)
@@ -46,5 +52,15 @@ class UsersController < ApplicationController
 
   def allowed_params
     params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency)
+  end
+
+  def sorted_rants
+    Rant.where.not(user_id: session[:user_id]).order(:updated_at).reverse
+  end
+
+  def login_user
+    flash[:notice] = "Thank you for registering"
+    session[:user_id] = @user.id
+    redirect_to user_path(session[:user_id])
   end
 end

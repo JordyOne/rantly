@@ -1,6 +1,16 @@
-
 <% rants.each do |rant| %>
-    <%= full_name(rant.user) %><br>
-    <%= rant.text %><br>
+    <div class="single-rant"><title class="rant-user"><%= full_name(rant.user) %></title>
+
+      <p class="rant-content"><%= rant.text %></p>
+      <% if @user.following?(rant.user) %>
+          <%= link_to "Unfollow", user_relationship_path(@user, rant.user.id), method: :delete, class: "follow-button" %>
+      <% else %>
+          <%= form_for [@user, @relationship], class: "follow-button" do |f| %>
+              <%= hidden_field_tag :followed_id, rant.user.id %>
+              <%= f.submit "Follow" %>
+          <% end %>
+      <% end %>
+
+    </div>
 <% end %>
 

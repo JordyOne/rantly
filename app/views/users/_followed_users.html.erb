@@ -1,3 +1,7 @@
+<div class="flex-container-body"></div>
 <% followed_users.each do |followed| %>
-    <%= followed.first_name %><br>
+    <div class="flex-item">
+    <h1><%= full_name(followed) %></h1>
+    <%= link_to "Unfollow", user_relationship_path(@user, followed.id), method: :delete %>
+    </div>
 <% end %>

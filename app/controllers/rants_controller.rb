@@ -1,11 +1,13 @@
 class RantsController < ApplicationController
   def index
-    @rants = Rant.find_by(user_id: params[:user_id])
+    @rants = Rant.find_by(allowed_parameters)
   end
 
   def create
-    @rant = Rant.create!(allowed_parameters)
-    redirect_to user_path(allowed_parameters[:user_id])
+    @rant = Rant.create(allowed_parameters)
+    if @rant.persisted?
+      redirect_to user_path(allowed_parameters[:user_id])
+    end
   end
 
   def destroy

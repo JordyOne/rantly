@@ -16,6 +16,7 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'factory_girl_rails'
 end
 
 gem 'bcrypt', '~> 3.1.7'
@@ -23,3 +24,4 @@ gem 'bcrypt', '~> 3.1.7'
 ruby "2.1.1"
 
 
+gem 'aws-sdk'

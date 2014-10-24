@@ -41,3 +41,26 @@
   height: 85%;
   margin-top: 15px;
 }
+
+.single-rant {
+  padding: 10px;
+}
+
+.new_relationship {
+  input {
+    background-color: inherit;
+    border: none;
+    color: mediumblue;
+    text-decoration: underline;
+    font-family: inherit;
+  }
+}
+
+.rant-user {
+  display: inline;
+  font-size: 25px;
+}
+
+.rant-content{
+ padding-left: 10%;
+}
