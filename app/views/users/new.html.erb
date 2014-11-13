@@ -2,48 +2,49 @@
   <div class="flex-container-login">
     <div class="flex-item-center" id="title"><h2>Register</h2></div>
     <div class="flex-item-center">
-      <%= form_for @user do |f| %>
+      <%= form_for @user do |form| %>
 
-          <% if f.object.errors.any? %>
-              <div class="error">Your Username/Password could not be created</div>
+          <% if @user.errors.any? %>
+            <%= render partial: 'shared/error_messages', locals: {user: @user} %>
           <% end %>
           <div>
-            <%= f.label :username %>
-            <%= f.text_field :username %>
+            <%= form.label :username %>
+            <%= form.text_field :username %>
           </div>
 
           <div>
-            <%= f.label :password %>
-            <%= f.password_field :password %>
+            <%= form.label :password %>
+            <%= form.password_field :password %>
           </div>
           <div>
-            <%= f.label :first_name %>
-            <%= f.text_field :first_name %>
+            <%= form.label :first_name %>
+            <%= form.text_field :first_name %>
           </div>
           <div>
-            <%= f.label :last_name %>
-            <%= f.text_field :last_name %>
+            <%= form.label :last_name %>
+            <%= form.text_field :last_name %>
           </div>
           <div>
-            <%= f.label :bio %>
-            <%= f.text_area :bio %>
+            <%= form.label :bio %>
+            <%= form.text_area :bio %>
           </div>
           <div>
-            <%= f.label "How often do you rant?" %><br/>
+            <%= form.label "How often do you rant?" %>
+            <br/>
 
-            <%= f.label "Daily" %>
-            <%= f.radio_button :frequency, "Daily" %>
+            <%= form.label "Daily" %>
+            <%= form.radio_button :frequency, "Daily" %>
 
-            <%= f.label "Weekly" %>
-            <%= f.radio_button :frequency, "Weekly" %>
+            <%= form.label "Weekly" %>
+            <%= form.radio_button :frequency, "Weekly" %>
 
-            <%= f.label "Monthly" %>
-            <%= f.radio_button :frequency, "Monthly" %>
+            <%= form.label "Monthly" %>
+            <%= form.radio_button :frequency, "Monthly" %>
           </div>
 
 
           <div>
-            <%= f.submit %>
+            <%= form.submit %>
           </div>
 
       <% end %>

@@ -1,23 +1,46 @@
 class RantsController < ApplicationController
-  def index
-    @rants = Rant.find_by(allowed_parameters)
-  end
 
   def create
     @rant = Rant.create(allowed_parameters)
-    if @rant.persisted?
-      redirect_to user_path(allowed_parameters[:user_id])
+    if @rant.valid?
+      render json: @rant
     end
   end
 
   def destroy
-    Rant.find_by(id: params[:id]).destroy
-    redirect_to user_path(params[:user_id])
+    @rant = find_rant
+
+    if @rant.user_id == @user.id
+      @rant.destroy
+      flash[:notice] = 'rant deleted!'
+    else
+      flash[:notice] = 'you can only delete your own rants!'
+    end
+
+    redirect_to dashboard_path(current_user)
+  end
+
+  def show
+    @dashboard = Dashboard.new(current_user, rant_user, find_rant)
   end
 
   private
 
+  def rant_user
+    User.find_by(id: find_rant.user)
+  end
+
+  def find_rant
+    Rant.find_by(id: allowed_parameters[:id])
+  end
+
   def allowed_parameters
-    params.require(:rant).permit(:title, :text).merge({:user_id => params[:user_id]})
+    if params[:rant]
+      params.require(:rant).permit(:text, :title, :search_term).merge(user_id: params[:user_id])
+    else
+      user_id = params[:user_id]
+      id = params[:id]
+      {user_id: user_id, id: id}
+    end
   end
 end

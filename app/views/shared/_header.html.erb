@@ -1,0 +1,31 @@
+<div class="flex-item" id="header">
+  <div class="flex-item" id="header-container">
+    <div id="banner_logo_styling">
+      <a href="<%= root_path %>">Rant.ly </a>
+    </div>
+  </div>
+
+  <% if session[:user_id] %>
+     <%= render partial: 'shared/dashboard_buttons' %>
+  <% end %>
+
+  <div class="flex-item" id="header-container-buttons">
+    <div>
+      <% unless session[:user_id] %>
+          <%= link_to "Login", new_session_path, id: "login-button" %>
+      <% end %>
+    </div>
+    <div>
+      <% if session[:user_id] %>
+          <%= link_to "Logout", session_path(session[:user_id]), :method => :delete, id: "login-button" %>
+      <% else %>
+          <form action="<%= new_user_path %>">
+            <button type="submit" id="join_button">Join</button>
+          </form>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div id="flash-notice" class="flash">
+  <%= flash[:notice] %>
+</div>

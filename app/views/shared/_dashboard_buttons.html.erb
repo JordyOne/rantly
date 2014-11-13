@@ -1,0 +1,17 @@
+<div class="flex-item" id="header-container-middle">
+  <div class="flex-item-dashboard-button">
+    <div>
+      <%= link_to "Dashboard", dashboard_path(session[:user_id]), class: "header_link_styling header-button" %>
+    </div>
+  </div>
+  <div class="flex-item-dashboard-button">
+    <div>
+      <%= link_to "Following", following_user_path(session[:user_id]), class: "header_link_styling header-button" %>
+    </div>
+  </div>
+  <div class="flex-item-dashboard-button">
+    <div>
+      <%= link_to "Search", search_path(session[:user_id]), class: "header_link_styling header-button" %>
+    </div>
+  </div>
+</div>

@@ -8,15 +8,11 @@ class User < ActiveRecord::Base
                                    dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  validates :username, :password_digest, :first_name, :last_name, :bio, :frequency, presence: true
+
+
   def following?(other_user)
     self.relationships.find_by(followed_id: other_user.id)
   end
 
-  def follow!(other_user)
-    self.relationships.create!(followed_id: other_user.id)
-  end
-
-  def unfollow!(other_user)
-    self.find_by(followed_id: other_user.id).destroy
-  end
 end

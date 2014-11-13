@@ -1,0 +1,29 @@
+.flex-container-rant {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: stretch;
+}
+
+
+.flex-item-rant{
+    display: flex;
+    border-radius: 5px;
+    padding: 15px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 80%;
+}
+
+.flex-item-favorite-button {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+

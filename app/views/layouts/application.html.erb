@@ -2,45 +2,12 @@
 <html>
 <head>
   <title>Rantly</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body class="flex-container">
-<div class="flex-item" id="header">
-  <div class="flex-item" id="header-container">
-    <div id="banner_logo_styling">
-      <a href="<%= root_path %>">Rant.ly </a>
-    </div>
-  </div>
-
-  <% if session[:user_id] %>
-      <div class="flex-item" id="header-container-middle">
-        <%= link_to "Dashboard", user_path(session[:user_id]), class: "header_link_styling" %>
-        <%= link_to "Following", following_user_path(session[:user_id]), class: "header_link_styling" %>
-      </div>
-  <% end %>
-
-  <div class="flex-item" id="header-container-buttons">
-    <div>
-      <% if session[:user_id] %>
-          <%= link_to "Logout", session_path(session[:user_id]), :method => :delete, id: "login-button" %>
-      <% else %>
-          <%= link_to "Login", new_session_path, id: "login-button" %>
-      <% end %>
-    </div>
-    <div>
-      <% unless session[:user_id] %>
-          <form action="<%= new_user_path %>">
-            <button type="submit" id="join_button">Join</button>
-          </form>
-      <% end %>
-    </div>
-  </div>
-</div>
-<div id="flash-notice">
-  <%= flash[:notice] %>
-</div>
+<%= render partial: "shared/header" %>
 
 <%= yield %>
 

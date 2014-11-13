@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(allowed_params) #added bang and relied on object for if statement vs. .save function
-    if @user.persisted?
+    @user = User.create(allowed_params)
+    if @user.valid?
       login_user
     else
       render :new
@@ -13,10 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    current_user
-    @rants = sorted_rants
-    @rant = Rant.new # initialized Rant for form_for
-    @relationship = Relationship.new
+    render json: current_user
   end
 
   def edit
@@ -24,16 +21,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update_attributes(user_params)
+    if current_user.update_attributes(current_user_params)
       flash[:notice] = "Profile Updated"
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user)
     else
       flash[:notice] = "Your profile could not be saved"
     end
   end
 
   def following
-    current_user
+    @dashboard = Dashboard.new(current_user)
   end
 
   def followers
@@ -42,11 +39,7 @@ class UsersController < ApplicationController
 
   private
 
-  def current_user
-    @user ||= User.find(session[:user_id]) if session[:user_id]
-  end
-
-  def user_params
+  def current_user_params
     params.require(:user).permit(:username, :first_name, :last_name, :bio, :frequency)
   end
 
@@ -54,13 +47,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency)
   end
 
-  def sorted_rants
-    Rant.where.not(user_id: session[:user_id]).order(:updated_at).reverse
-  end
-
   def login_user
     flash[:notice] = "Thank you for registering"
     session[:user_id] = @user.id
-    redirect_to user_path(session[:user_id])
+    redirect_to dashboard_path(current_user)
   end
 end

@@ -1,0 +1,11 @@
+<% rants.each do |rant| %>
+    <div class="single-rant">
+      <h1 class="rant-user">
+        <a href="<%= user_profile_path(@user.id, rant.user.id) %>"><%= full_name(rant.user) %></a>
+      </h1>
+
+      <%= link_to rant.text, user_profile_rant_path(@user, rant.user.id, rant.id) %>
+      <%= render partial: "shared/follow_link", locals: {user: @user, other_user: rant.user} %>
+    </div>
+<% end %>
+

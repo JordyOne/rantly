@@ -4,4 +4,12 @@ class Relationship < ActiveRecord::Base
 
   validates :follower_id, presence: true
   validates :followed_id, presence: true
+  #
+  # def follow!(other_user)
+  #   self.create!(followed_id: other_user.id)
+  # end
+  #
+  # def unfollow!(other_user)
+  #   self.find_by(followed_id: other_user.id).destroy
+  # end
 end

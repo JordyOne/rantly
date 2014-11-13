@@ -1,0 +1,19 @@
+<%= form_for [dashboard.user, dashboard.new_rant] do |form| %>
+    <div class="flex-container-rant-form">
+      <div class="flex-item-rant-input">
+        <div class="errors title-error"></div>
+        <%= form.label "A Rant About:" %>
+        <%= form.text_field :title %>
+      </div>
+      <div class="flex-item-rant-input">
+        <div class="errors rant-error"></div>
+        <%= form.label "Rant:" %>
+        <%= form.text_area :text %>
+      </div>
+      <div class="flex-item-rant-input rant-button">
+        <form action="<%= new_user_path %>">
+          <button type="submit" id="rant-submit-button">Rant</button>
+        </form>
+      </div>
+    </div>
+<% end %>

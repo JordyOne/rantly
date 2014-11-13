@@ -1,3 +1,4 @@
+
 <div class="flex-container-body" id="user-profile">
   <div class="flex-container-profile">
     <div class="flex-container" id="logo-styling">
@@ -12,10 +13,9 @@
 
 
   </div>
-  <div class="flex-container-follower" id="user-body">
-    <%= render partial: "users/followed_users", locals: {dashboard: @dashboard} %>
+  <div class="flex-container-user-body" id="user-body">
+    <%= render partial: "profile_user_body", locals: {dashboard: @dashboard} %>
+
   </div>
 </div>
 
-
-<div class="rant-body"><%= render partial: "followed_users", locals: {dashboard: @dashboard} %></div>

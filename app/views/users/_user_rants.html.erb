@@ -1,5 +1,7 @@
 <% rants.each do |rant| %>
+    <div class="single-rant">
     <%= rant.text %><br>
     <%= link_to "Delete",  user_rant_path(params[:id], rant.id), :method => :delete, :class => 'rant-delete-link' %>
+    </div>
 <% end %>
 

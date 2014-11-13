@@ -1,0 +1,12 @@
+<h1 class="rant-title-styling">Latest Rants</h1>
+<hr/>
+
+<div class="rant-body" id="latest-rants">
+  <%= render partial: "shared/latest_rants", locals: {rants: dashboard.latest_rants} %>
+</div>
+<h1 class="rant-title-styling">My Rants</h1>
+
+<hr/>
+<div class="rant-body" id="user-rants">
+  <%= render partial: "users/user_rants", locals: {rants: dashboard.user_rants} %>
+</div>

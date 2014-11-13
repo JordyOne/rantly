@@ -1,0 +1,13 @@
+<% dashboard.profile_user_rants.each do |rant| %>
+    <div class="flex-container-rant">
+      <div class="flex-item-rant">
+        <%= link_to rant.text, user_rant_path(@dashboard.user, rant.id) %>
+        <br/>
+      </div>
+      <div class="flex-item-favorite-button favorite-button">
+        <%= link_to "Favorite", method: :post %>
+        <br/>
+      </div>
+    </div>
+<% end %>
+

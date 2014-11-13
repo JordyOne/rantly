@@ -1,8 +1,8 @@
-<% if @user %>
+<% if dashboard %>
 <div class="stats">
-  <a href="<%= followers_user_path(@user) %>">
+  <a href="<%= followers_user_path(dashboard.user) %>">
     <strong id="following" class="stat">
-      <%= @user.followers.count %>
+      <%= dashboard.user.followers.count %>
     </strong>
     following
   </a>

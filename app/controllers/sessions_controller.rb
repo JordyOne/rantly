@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: allowed_parameters[:username])
+    @user = current_user
     if @user && @user.authenticate(allowed_parameters[:password])
       sign_in_user
     else
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(current_user)
   end
 
   def destroy
@@ -26,10 +26,14 @@ class SessionsController < ApplicationController
 
   private
 
+  def current_user
+    User.find_by(username: allowed_parameters[:username])
+  end
+
   def sign_in_user
     session[:user_id] = @user.id
     flash[:notice] = "You are signed in"
-    redirect_to user_path(@user.id)
+    redirect_to dashboard_path(current_user)
   end
 
   def allowed_parameters
