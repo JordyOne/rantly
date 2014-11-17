@@ -5,7 +5,9 @@ SITE = {
             FOLLOW.unfollow($('.unfollow-link'));
 
             RANT.rantPostHandler();
-            SEARCH.search()
+            SEARCH.search();
+            FAVORITE.favorite($('.favorite-button-link'));
+            FAVORITE.unfavorite($('.unfavorite-button-link'));
         }
     },
     users: {}

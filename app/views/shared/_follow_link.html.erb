@@ -2,7 +2,7 @@
     <%= link_to 'Unfollow', user_relationship_path(user, other_user), method: :delete, class: 'unfollow-link' %>
 <% else %>
     <%= link_to 'Follow', user_relationships_path(user, id: other_user), method: :post, class: 'follow-link' %>
-<% end %>
+<% end %>s
 
 <!--This file is just the initial state of the page or on refresh-->
 <!-- JS for the button is changing the Text, but not the route path-->

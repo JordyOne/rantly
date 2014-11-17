@@ -43,4 +43,5 @@ class RantsController < ApplicationController
       {user_id: user_id, id: id}
     end
   end
+
 end

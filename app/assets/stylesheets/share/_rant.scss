@@ -27,3 +27,23 @@
   flex-shrink: 0;
 }
 
+.favorite-button {
+  color: cornflowerblue;
+}
+
+.flex-item-profile-rant-title {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 15px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.rant-title {
+  font-size: 15px;
+
+}
+

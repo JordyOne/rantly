@@ -9,6 +9,7 @@ FOLLOW = {
             FOLLOW.postFollow(url);
         })
     },
+
     unfollow: function (elements) {
         elements.one('click', function (e) {
             e.preventDefault();
@@ -24,9 +25,11 @@ FOLLOW = {
     postFollow: function (url) {
         var followerId = url.split('/')[2];
         var followedId = url.split('=').pop();
-        var data = {relationship: {follower_id: followerId,
-            followed_id: followedId}};
-        console.log(data);
+        var data = {relationship: {
+                        follower_id: followerId,
+                        followed_id: followedId
+                        }
+                    };
         $.ajax({
             url: '/users/' + followerId + '/relationships',
             data: data,
@@ -34,11 +37,15 @@ FOLLOW = {
             success: FOLLOW.switchFollowLinks()
         })
     },
+
     deleteFollow: function (url) {
         var followerId = url.split('/')[2];
         var followedId = url.split('/').pop();
-        var data = {relationship: {follower_id: followerId,
-                                   followed_id: followedId}};
+        var data = {relationship: {
+                        follower_id: followerId,
+                        followed_id: followedId
+                        }
+                    };
         $.ajax({
             url: '/users/' + followerId + '/relationships/' + followedId,
             data: data,
@@ -46,6 +53,7 @@ FOLLOW = {
             success: FOLLOW.switchUnfollowLinks()
         })
     },
+
     switchUnfollowLinks: function () {
         var href = FOLLOW.unfollowElement.attr('href');
         var otherUserId = href.split('/').pop();
@@ -60,6 +68,7 @@ FOLLOW = {
             FOLLOW.follow($(this));
         });
     },
+
     switchFollowLinks: function () {
         var href = FOLLOW.followElement.attr('href');
         var otherUserId = href.split('=').pop();

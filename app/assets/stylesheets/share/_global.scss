@@ -42,6 +42,16 @@ article {
   padding: 30px;
 }
 
+.flex-container-user-profile {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: stretch;
+  padding: 30px;
+}
+
 .flex-item-user-body {
   display: flex;
   justify-content: flex-start;
@@ -167,6 +177,4 @@ a { color: inherit;
   text-align: center;
 }
 
-.favorite-button {
-  color: cornflowerblue;
-}
+

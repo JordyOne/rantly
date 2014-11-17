@@ -7,12 +7,13 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show] do
       resources :rants, only: [:show]
     end
-    resources :favorites, only: [:create, :destroy]
     member do
       get :followers, :following
     end
   end
 
+  post '/favorites/:id', to: 'favorites#create', as: 'favorite'
+  delete '/favorites/:id', to: 'favorites#destroy'
 
   resources :searches, only: [:show, :index]
 
