@@ -14,4 +14,9 @@
       <%= link_to "Search", search_path(session[:user_id]), class: "header_link_styling header-button" %>
     </div>
   </div>
+  <div class="flex-item-dashboard-button">
+    <div>
+      <%= link_to "Favorites", favorites_path(session[:user_id]), class: "header_link_styling header-button" %>
+    </div>
+  </div>
 </div>

@@ -40,4 +40,8 @@ class Dashboard
   def profile_favorite_sorted_rants
     Rant.where(user_id: profile_user.id).sort_by { |rant| -Favorite.where(rant_id: rant.id).count }
   end
+
+  def user_favorites
+    Favorite.where(user_id: user.id).sort_by { |favorite| -Favorite.where(rant_id: favorite.rant_id).count }
+  end
 end

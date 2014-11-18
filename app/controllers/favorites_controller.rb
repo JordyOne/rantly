@@ -1,4 +1,8 @@
 class FavoritesController < ApplicationController
+  def index
+    @dashboard = Dashboard.new(user)
+  end
+
   def create
     @favorite = Favorite.create!(allowed_params)
 
@@ -14,7 +18,12 @@ class FavoritesController < ApplicationController
 
   private
 
+  def user
+    User.find_by(id: allowed_params[:user_id])
+  end
+
   def allowed_params
+    p params
     {user_id: current_user.id, rant_id: params[:id]}
   end
 end
