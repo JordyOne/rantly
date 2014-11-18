@@ -10,7 +10,7 @@ class RantsController < ApplicationController
   def destroy
     @rant = find_rant
 
-    if @rant.user_id == @user.id
+    if @rant.user_id == current_user.id
       @rant.destroy
       flash[:notice] = 'rant deleted!'
     else
