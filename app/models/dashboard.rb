@@ -22,7 +22,7 @@ class Dashboard
   end
 
   def latest_rants
-    Rant.where.not(user_id: @user.id).order(:updated_at)
+    Rant.where.not(user_id: @user.id).order(:updated_at).limit(10)
   end
 
   def user_rants
@@ -47,5 +47,9 @@ class Dashboard
 
   def user_favorites
     Favorite.where(user_id: user.id).sort_by { |favorite| -Favorite.where(rant_id: favorite.rant_id).count }
+  end
+
+  def mentioned_rants
+    Rant.where('text LIKE ?', "%@"+"#{@user.username}"+"%")
   end
 end
