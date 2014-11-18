@@ -17,6 +17,10 @@ class Dashboard
     Rant.new
   end
 
+  def current_rant
+    Rant.find_by(id: @rant.id)
+  end
+
   def latest_rants
     Rant.where.not(user_id: @user.id).order(:updated_at)
   end

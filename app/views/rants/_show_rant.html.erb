@@ -1,3 +1,23 @@
-<a href="<%= user_profile_path(dashboard.user.id, dashboard.profile_user.id) %>"><%= full_name(dashboard.profile_user) %></a>
-<%= dashboard.current_rant_title %>
-<%= dashboard.current_rant_text %>
+<div class="flex-container-rant">
+
+  <div class="flex-container-user-profile">
+    <div class="flex-item-profile-rant-title rant-title-styling">
+      <h1><%= link_to full_name(rant.user), user_profile_path(@dashboard.user, rant.user.id) %></h1>
+    </div>
+    <div class="flex-item-profile-rant-title rant-title">
+      <h1><%= rant.title %></h1>
+    </div>
+    <div class="flex-item-rant">
+      <p><%= link_to rant.text, user_rant_path(@dashboard.user, rant.id) %></p>
+      <br/>
+    </div>
+  </div>
+  <div class="flex-item-favorite-button favorite-button">
+
+    <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
+    <br/>
+  </div>
+  <div class="flex-item-center">
+    <%= render partial: "shared/follow_link", locals: {user: @dashboard.user, other_user: rant.user} %>
+  </div>
+</div>

@@ -11,7 +11,7 @@
 
   </div>
   <div class="flex-container-user-body" id="user-body">
-    <div class="rant-body"><%= render partial: "show_rant", locals: {dashboard: @dashboard} %></div>
+    <div class="rant-body"><%= render partial: "show_rant", locals: {rant: @dashboard.current_rant} %></div>
 
   </div>
 </div>
