@@ -21,7 +21,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-
   def sorted_rants
     Rant.where.not(user_id: @user.id).order(:updated_at).reverse
   end

@@ -1,11 +1,23 @@
 <% rants.each do |rant| %>
-    <div class="single-rant">
-      <h1 class="rant-user">
-        <a href="<%= user_profile_path(@user.id, rant.user.id) %>"><%= full_name(rant.user) %></a>
-      </h1>
+    <div class="flex-container-rant">
 
-      <%= link_to rant.text, user_profile_rant_path(@user, rant.user.id, rant.id) %>
-      <%= render partial: "shared/follow_link", locals: {user: @user, other_user: rant.user} %>
+      <div class="flex-container-user-profile">
+        <div class="flex-item-profile-rant-title rant-title">
+          <h1><%= link_to full_name(rant.user), user_profile_path(@user, rant.user.id) %></h1>
+        </div>
+        <div class="flex-item-rant">
+          <p><%= link_to rant.text, user_rant_path(@dashboard.user, rant.id) %></p>
+          <br/>
+        </div>
+      </div>
+      <div class="flex-item-favorite-button favorite-button">
+
+        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
+        <br/>
+      </div>
+      <div class="flex-item-center">
+        <%= render partial: "shared/follow_link", locals: {user: @user, other_user: rant.user} %>
+      </div>
     </div>
 <% end %>
 

@@ -18,7 +18,7 @@ class Dashboard
   end
 
   def latest_rants
-    Rant.where.not(user_id: @user.id)
+    Rant.where.not(user_id: @user.id).order(:updated_at)
   end
 
   def user_rants
@@ -35,5 +35,9 @@ class Dashboard
 
   def current_rant_title
     @rant.title
+  end
+
+  def profile_favorite_sorted_rants
+    Rant.where(user_id: profile_user.id).sort_by { |rant| -Favorite.where(rant_id: rant.id).count }
   end
 end

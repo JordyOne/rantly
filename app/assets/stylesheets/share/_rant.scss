@@ -7,14 +7,26 @@
   align-items: stretch;
 }
 
+.flex-item-rant {
+  display: flex;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  padding: 5px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 80%;
+  overflow: hidden;
+}
 
-.flex-item-rant{
-    display: flex;
-    border-radius: 5px;
-    padding: 15px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    max-width: 80%;
+.flex-item-bio {
+  display: flex;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  padding: 15px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 80%;
+  overflow: hidden;
 }
 
 .flex-item-favorite-button {
@@ -37,7 +49,7 @@
   text-align: center;
   align-items: center;
   border-radius: 5px;
-  padding: 15px;
+  padding: 5px;
   flex-grow: 0;
   flex-shrink: 0;
 }
