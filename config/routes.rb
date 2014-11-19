@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     resources :rants, only: [:create, :destroy, :show] do
       resources :comments, only: [:create, :destroy]
+      member do
+        patch :spam
+      end
     end
     resources :profiles, only: [:show] do
       resources :rants, only: [:show]

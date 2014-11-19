@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def spam?(rant)
+    Rant.find_by(id: rant.id).spam
+  end
+
   def markdown(text)
     render_options = {
         filter_html:     true,

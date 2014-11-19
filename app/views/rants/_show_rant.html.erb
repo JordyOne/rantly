@@ -7,6 +7,16 @@
     <div class="flex-item-followed">
       <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
     </div>
+    <div class="flex-item-followed">
+      <%= link_to 'Tweet This', "https://twitter.com/share?text=Check out this rant on Rant.ly: ", :target => "_blank", class: "tweet_button" %>
+    </div>
+    <div class="flex-item-followed">
+      <% if spam?(rant) %>
+          <h2>This has been flagged as potential spam</h2>
+      <% else %>
+          <%= link_to 'Spam', spam_user_rant_path(@dashboard.user, rant.id), method: 'PATCH', class: "spam_button" %>
+      <% end %>
+    </div>
     <div class="flex-item-profile-rant-title rant-title">
       <h1><%= rant.title %></h1>
     </div>
@@ -17,10 +27,10 @@
   </div>
   <div class="flex-item-favorite-button favorite-button">
     <% if rant.user_id != current_user.id %>
-    <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
-  </div>
-  <div class="flex-item-center">
+        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
+        </div>
+        <div class="flex-item-center">
           <%= render partial: "shared/follow_link", locals: {user: @dashboard.user, other_user: rant.user} %>
-  </div>
+        </div>
     <% end %>
-</div>
+    </div>
