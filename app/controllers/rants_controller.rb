@@ -26,7 +26,7 @@ class RantsController < ApplicationController
 
   def spam
     rant = Rant.find_by(id: allowed_parameters[:rant_id])
-    rant.update_attributes!(spam: true)
+    rant.update_attributes(spam: true)
     flash[:message] = "Rant reported as spam."
 
     redirect_to user_rant_path(current_user, rant)
