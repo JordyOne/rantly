@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :spams
 
   has_attached_file :avatar, styles: {
       thumb: '100x100>',

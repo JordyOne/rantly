@@ -3,7 +3,7 @@
   <%= render partial: "shared/sidebar", locals: {dashboard: @dashboard} %>
 
   <div class="flex-container-user-body" id="user-body">
-    <div class="rant-body"><%= render partial: "show_rant", locals: {rant: @dashboard.current_rant} %></div>
+    <div class="rant-body"><%= render partial: "show_rant", locals: {rant: @dashboard.current_rant, dashboard: @dashboard} %></div>
 
   </div>
 </div>

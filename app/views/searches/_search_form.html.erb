@@ -1,13 +1,23 @@
-<div class="flex-item-search_form">
+<div class="search-form" >
   <%= form_tag :searches, url: searches_path, method: :get do %>
       <%= text_field_tag :search_term, "#{params[:search_term]}" %>
       <%= submit_tag "Search" %>
   <% end %>
 </div>
-<% if users %>
-    <%= render partial: 'search_user_results', locals: {users: users} %>
-<% end %>
+<h1 class="rant-title-styling">Results By Name</h1>
 
-<% if rants %>
-    <%= render partial: 'search_rants_results', locals: {rants: rants} %>
-<% end %>
+<hr/>
+<div class="rant-body">
+  <% if users %>
+      <%= render partial: 'search_user_results', locals: {users: users} %>
+  <% end %>
+</div>
+<h1 class="rant-title-styling">Results by Rant Text</h1>
+
+<hr/>
+<div class="rant-body">
+  <% if rants %>
+      <%= render partial: 'search_rants_results', locals: {rants: rants} %>
+  <% end %>
+</div>
+

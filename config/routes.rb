@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
+  delete '/users/:user_id/rants/:id/spam', to: 'rants#unspam'
+
   get '/users/:user_id/favorites/', to: 'favorites#index', as: 'favorites'
   post '/favorites/:id', to: 'favorites#create', as: 'favorite'
   delete '/favorites/:id', to: 'favorites#destroy'

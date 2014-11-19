@@ -1,10 +1,12 @@
-<div class="flex-container-body" id="user-profile">
+<div class="flex-container-body">
 
-  <%= render partial: "shared/sidebar", locals: {dashboard: @dashboard} %>
+  <div class="flex-container-profile" id="user-profile">
+    <%= render partial: "shared/sidebar", locals: {dashboard: @dashboard} %>
+  </div>
 
-    <div class="flex-container-search-rant-form">
-      <%= render partial: "search_form", locals: {users: @users, rants: @rants} %>
-    </div>
+  <div class="flex-container-user-body" id="user-body">
+    <%= render partial: 'search_form', locals: {users: @users, rants: @rants} %>
   </div>
 
 </div>
+

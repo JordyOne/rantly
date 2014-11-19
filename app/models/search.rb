@@ -19,13 +19,13 @@ class Search
   def search_columns(table, term1=nil, term2=nil, term3=nil)
     if term3 != nil
       table.where("#{term1} LIKE ? OR #{term2} LIKE ? OR #{term3} LIKE ?",
-                  "%#{@term}%",
-                  "%#{@term}%",
-                  "%#{@term}%")
+                  "#{@term}%",
+                  "#{@term}%",
+                  "#{@term}%")
     else
       table.where("#{term1} LIKE ? OR #{term2} LIKE ?",
                   "%#{@term}%",
-                  "%#{@search_term}%")
+                  "%#{@term}%")
     end
 
   end

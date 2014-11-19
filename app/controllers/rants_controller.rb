@@ -25,17 +25,23 @@ class RantsController < ApplicationController
   end
 
   def spam
-    rant = Rant.find_by(id: allowed_parameters[:rant_id])
-    rant.update_attributes(spam: true)
+    Spam.create(user_id: allowed_parameters[:user_id], rant_id: allowed_parameters[:rant_id])
     flash[:message] = "Rant reported as spam."
 
-    redirect_to user_rant_path(current_user, rant)
+    redirect_to user_rant_path(current_user, find_rant.id)
+  end
+
+  def unspam
+    Spam.find_by(user_id: allowed_parameters[:user_id], rant_id: allowed_parameters[:rant_id]).destroy
+
+    redirect_to user_rant_path(current_user, find_rant.id)
   end
 
   private
 
   def rant_user
-    User.find_by(id: find_rant.user)
+    rant = Rant.find_by(id: allowed_parameters[:rant_id])
+    User.find_by(id: rant.user.id)
   end
 
   def find_rant
@@ -43,10 +49,8 @@ class RantsController < ApplicationController
   end
 
   def allowed_parameters
-    puts params
-    puts '*' *80
     if params[:rant]
-      params.require(:rant).permit(:text, :title, :search_term).merge(user_id: params[:user_id], rant_id: params[:id])
+      params.require(:rant).permit(:text, :title, :search_term).merge(user_id: params[:user_id])
     else
       user_id = params[:user_id]
       id = params[:id]

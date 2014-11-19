@@ -56,4 +56,8 @@ class Dashboard
   def new_comment
     Comment.new
   end
+
+  def current_user_spam?
+    spam = Spam.find_by(user_id: user.id, rant_id: current_rant.id)
+  end
 end
