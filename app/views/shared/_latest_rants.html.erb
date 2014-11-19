@@ -9,7 +9,7 @@
         <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
 
         <div class="flex-item-rant">
-          <p><%= link_to truncate(rant.text, length: 300), user_rant_path(@dashboard.user, rant.id) %></p>
+          <p><%= link_to markdown(truncate(rant.text, length: 300, omission: '... (read more)')), user_rant_path(@dashboard.user, rant.id) %></p>
           <br/>
         </div>
       </div>

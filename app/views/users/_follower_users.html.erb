@@ -1,3 +1,5 @@
 <% follower_users.each do |follower| %>
-<%= full_name(follower) %>
+    <%= full_name(follower) %>
+    <%= image_tag follower.avatar.url(:square) %>
+
 <% end %>

@@ -9,7 +9,7 @@
             <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
 
             <div class="flex-item-rant">
-              <%= link_to rant.text, user_rant_path(current_user, rant.id) %>
+              <%= link_to markdown(rant.text), user_rant_path(current_user, rant.id) %>
               <br/>
             </div>
           </div>

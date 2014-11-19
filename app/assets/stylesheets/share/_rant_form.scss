@@ -30,3 +30,11 @@
     font-size: 20px;
     color: white;
 }
+
+
+[name~="rant[text]"]{
+  height: 300px;
+  width: 96%;
+  color: black;
+  font-size: 18px;
+}

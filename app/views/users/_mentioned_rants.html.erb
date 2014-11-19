@@ -1,5 +1,5 @@
 <% rants.each do |rant| %>
     <div class="single-rant">
-      <%= rant.text %><br>
+      <%= link_to markdown(rant.text), user_rant_path(rant.id)%><br>
     </div>
 <% end %>

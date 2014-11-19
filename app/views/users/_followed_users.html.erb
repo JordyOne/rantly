@@ -2,6 +2,8 @@
 <% dashboard.user.following.each do |followed| %>
     <div class="flex-item-followed">
       <h1><%= full_name(followed) %></h1>
+      <%= image_tag followed.avatar.url(:square), class: "footer-image" %>
+
       <%= render partial: "shared/follow_link", locals: {user: dashboard.user, other_user: followed} %>
     </div>
 <% end %>

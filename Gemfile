@@ -19,6 +19,7 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'pry-byebug'
+  gem 'foreman'
 end
 
 gem 'bcrypt', '~> 3.1.7'
@@ -26,3 +27,4 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'redcarpet'

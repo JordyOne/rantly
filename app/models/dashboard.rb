@@ -26,7 +26,7 @@ class Dashboard
   end
 
   def user_rants
-    @user.rants
+    @user.rants.reverse
   end
 
   def profile_user_rants

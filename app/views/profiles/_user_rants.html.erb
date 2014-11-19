@@ -6,15 +6,13 @@
           <h1><%= rant.title.capitalize %></h1>
         </div>
 
-        <%= image_tag dashboard.profile_user.avatar.url(:square), class:"footer-image" %>
-
         <div class="flex-item-rant">
-          <%= link_to rant.text, user_rant_path(@dashboard.user, rant.id) %>
+          <%= link_to markdown(rant.text), user_rant_path(dashboard.user, rant.id) %>
           <br/>
         </div>
       </div>
       <div class="flex-item-favorite-button favorite-button">
-        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
+        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: dashboard.user} %>
         <br/>
       </div>
     </div>
