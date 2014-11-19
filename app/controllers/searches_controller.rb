@@ -5,6 +5,7 @@ class SearchesController < ApplicationController
     if params[:search_term]
       @search = Search.new(params[:search_term])
       @users = Search.new(params[:search_term]).search_user_names
+      @rants = Search.new(params[:search_term]).search_rant
     else
       @search = Search.new
     end
