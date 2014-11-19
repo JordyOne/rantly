@@ -1,0 +1,51 @@
+<h2 class="rant-title-styling flex-item-center">Update</h2>
+
+<%= form_for @user do |form| %>
+
+    <% if form.object.errors.any? %>
+        <div class="error">Your Username/Password could not be created</div>
+    <% end %>
+    <div class="flex-item-center">
+      <%= form.label :username, :placeholder => @user.username %>
+      <%= form.text_field :username %>
+    </div>
+
+    <div class="flex-item-center">
+      <%= form.label :first_name, :placeholder => @user.first_name %>
+      <%= form.text_field :first_name %>
+    </div>
+    <div class="flex-item-center">
+      <%= form.label :last_name, :placeholder => @user.last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+    <div class="flex-item-center">
+      <%= form.label :bio, :placeholder => @user.bio %>
+      <%= form.text_area :bio %>
+    </div>
+    <div class="flex-item-center">
+      <%= form.label "How often do you rant?" %>
+      <br/>
+      <%= form.label "Daily" %>
+      <%= form.radio_button :frequency, "Daily" %>
+      <%= form.label "Weekly" %>
+      <%= form.radio_button :frequency, "Weekly" %>
+      <%= form.label "Monthly" %>
+      <%= form.radio_button :frequency, "Monthly" %>
+    </div>
+    <div class="flex-item-center">
+
+      <%= image_tag @user.avatar.url(:square), class: "footer-image" %>
+
+    </div>
+    <div class="flex-item-center">
+      <%= form.label :avatar %>
+      <%= form.file_field :avatar %>
+    </div>
+
+
+    <div class="flex-item-center">
+      <%= form.submit %>
+    </div>
+
+<% end %>
+

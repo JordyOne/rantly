@@ -1,27 +1,22 @@
-#registration-body {
-  flex-basis: 100%;
-  min-height: 600px;
-  height: auto;
-  background: #939494;
-  justify-content: center;
-  font-family: Comic Sans MS;
-}
 
-.flex-container-login {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: flex-start;
-  background: white;
-  flex-basis: 400px;
-  height: 400px;
-  margin-top: 20px;
-
-}
 
 .title {
     font-size: 30px;
+}
+
+#registration-body {
+  flex-basis: 60%;
+  background: white;
+  height: 85%;
+  margin-top: 15px;
+}
+
+.flex-container-registration-body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
 }
 

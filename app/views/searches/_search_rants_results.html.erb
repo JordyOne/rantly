@@ -1,26 +1,24 @@
+
 <% rants.each do |rant| %>
-    <div class="flex-container-rant">
+    <div class="flex-container-search-rant">
 
       <div class="flex-container-user-profile">
         <div class="flex-item-profile-rant-title rant-title">
-          <h1><%= link_to full_name(rant.user), user_profile_path(@user, rant.user.id) %></h1>
+          <h1><%= rant.title.capitalize %></h1>
         </div>
-
-        <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
-
+        <%= image_tag rant.user.avatar.url(:square), class:"footer-image" %>
         <div class="flex-item-rant">
-          <p><%= link_to truncate(rant.text, length: 300), user_rant_path(@dashboard.user, rant.id) %></p>
+          <%= link_to rant.text, user_rant_path(current_user, rant.id) %>
           <br/>
         </div>
       </div>
       <div class="flex-item-favorite-button favorite-button">
-
-        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
+        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: current_user} %>
         <br/>
+
       </div>
       <div class="flex-item-center">
         <%= render partial: "shared/follow_link", locals: {user: @user, other_user: rant.user} %>
       </div>
     </div>
 <% end %>
-

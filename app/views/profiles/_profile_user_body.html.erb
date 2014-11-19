@@ -1,7 +1,7 @@
 <h1 class="rant-title-styling"><%= full_name(dashboard.profile_user) %></h1>
 <hr/>
 <div class="flex-container-follower">
-  <img src="/images/profile.jpg" class="footer-image">
+  <%= image_tag dashboard.profile_user.avatar.url(:square), class:"footer-image" %>
 
   <h1 class="rant-title-styling"><%= dashboard.profile_user.frequency %> Ranter</h1>
 </div>

@@ -5,6 +5,9 @@
         <div class="flex-item-profile-rant-title rant-title">
           <h1><%= rant.title.capitalize %></h1>
         </div>
+
+        <%= image_tag dashboard.profile_user.avatar.url(:square), class:"footer-image" %>
+
         <div class="flex-item-rant">
           <%= link_to rant.text, user_rant_path(@dashboard.user, rant.id) %>
           <br/>

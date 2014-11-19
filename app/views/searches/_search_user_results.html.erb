@@ -1,0 +1,26 @@
+<% users.each do |user| %>
+    <% user.rants.each do |rant| %>
+        <div class="flex-container-search-rant">
+
+          <div class="flex-container-user-profile">
+            <div class="flex-item-profile-rant-title rant-title">
+              <h1><%= rant.title.capitalize %></h1>
+            </div>
+            <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
+
+            <div class="flex-item-rant">
+              <%= link_to rant.text, user_rant_path(current_user, rant.id) %>
+              <br/>
+            </div>
+          </div>
+          <div class="flex-item-favorite-button favorite-button">
+            <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: current_user} %>
+            <br/>
+
+          </div>
+          <div class="flex-item-center">
+            <%= render partial: "shared/follow_link", locals: {user: @user, other_user: rant.user} %>
+          </div>
+        </div>
+    <% end %>
+<% end %>

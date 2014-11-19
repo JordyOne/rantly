@@ -1,18 +1,9 @@
 <div class="flex-container-body" id="user-profile">
-  <div class="flex-container-profile">
-    <div class="flex-container" id="logo-styling">
-      <a href="<%= edit_user_path %>" class="flex-item-center" id="current-user-name" data-user="<%= @user.id %>"><%= full_name(@user) %></a>
 
-    </div>
+  <%= render partial: "shared/sidebar", locals: {dashboard: @dashboard} %>
 
-    <img src="/images/profile.jpg" class="footer-image">
-
-    <%= render partial: "users/follow_stats", locals: {dashboard: @dashboard} %>
-    <%= render partial: "shared/rant_form", locals: {dashboard: @dashboard} %>
-
-
-  </div>
   <div class="flex-container-user-body" id="user-body">
-       <%= render partial: "users/user_body", locals: {dashboard: @dashboard} %>
+    <%= render partial: "users/user_body", locals: {dashboard: @dashboard} %>
   </div>
+
 </div>

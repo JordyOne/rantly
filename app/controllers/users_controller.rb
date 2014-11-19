@@ -17,13 +17,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    current_user
+    @dashboard = Dashboard.new(current_user)
   end
 
   def update
     if current_user.update_attributes(current_user_params)
       flash[:notice] = "Profile Updated"
-      redirect_to user_path(current_user)
+      redirect_to dashboard_path(current_user)
     else
       flash[:notice] = "Your profile could not be saved"
     end
@@ -40,11 +40,11 @@ class UsersController < ApplicationController
   private
 
   def current_user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :bio, :frequency)
+    params.require(:user).permit(:username, :first_name, :last_name, :bio, :frequency, :avatar, :name)
   end
 
   def allowed_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency)
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency, :avatar, :name)
   end
 
   def login_user

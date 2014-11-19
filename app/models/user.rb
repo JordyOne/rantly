@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   has_many :favorites, dependent: :destroy
 
+  has_attached_file :avatar, styles: {
+      thumb: '100x100>',
+      square: '200x200#',
+      medium: '300x300>'
+  }
+
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
   validates :username, :password_digest, :first_name, :last_name, :bio, :frequency, presence: true
 
 
