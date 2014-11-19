@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post '/favorites/:id', to: 'favorites#create', as: 'favorite'
   delete '/favorites/:id', to: 'favorites#destroy'
 
-  resources :searches, only: [:show, :index]
+  resources :searches, only: [:index]
 
   resources :dashboards, only: [:show]
 

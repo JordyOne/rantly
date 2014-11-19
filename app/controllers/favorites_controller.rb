@@ -11,6 +11,7 @@ class FavoritesController < ApplicationController
 
   def destroy
     @favorite = Favorite.find_by(allowed_params)
+    p @favorite
     @favorite.destroy
 
     render json: @favorite
@@ -23,7 +24,6 @@ class FavoritesController < ApplicationController
   end
 
   def allowed_params
-    p params
     {user_id: current_user.id, rant_id: params[:id]}
   end
 end

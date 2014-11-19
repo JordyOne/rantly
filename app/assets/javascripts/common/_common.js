@@ -5,7 +5,6 @@ SITE = {
             FOLLOW.unfollow($('.unfollow-link'));
 
             RANT.rantPostHandler();
-            SEARCH.search();
             FAVORITE.favorite($('.favorite-button-link'));
             FAVORITE.unfavorite($('.unfavorite-button-link'));
         }

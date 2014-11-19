@@ -10,7 +10,7 @@ FAVORITE = {
             e.stopPropagation();
 
             FAVORITE.favoriteElement = $(this);
-            url = $(this).attr('href');
+            var url = $(this).attr('href');
             FAVORITE.postFavorite(url);
         })
     },
@@ -21,7 +21,7 @@ FAVORITE = {
             e.stopPropagation();
 
             FAVORITE.unfavoriteElement = $(this);
-            url = $(this).attr('href');
+            var url = $(this).attr('href');
             FAVORITE.deleteFavorite(url);
         })
     },
@@ -59,8 +59,8 @@ FAVORITE = {
     },
 
     incrementFavoriteCount: function (element) {
-        var div = $(element).siblings('span').find('#favorite-count');
-        var count = (parseInt(div.attr('class')) + 1).toString();
+        var div = $(element).siblings('span').find('.favorite-count');
+        var count = (parseInt(div.attr('data-count')) + 1).toString();
 
         div.empty();
 
@@ -68,8 +68,8 @@ FAVORITE = {
     },
 
     deincrementFavoriteCount: function (element) {
-        var div = $(element).siblings('span').find('#favorite-count');
-        var count = (div.attr('class'));
+        var div = $(element).siblings('span').find('.favorite-count');
+        var count = (div.attr('data-count'));
 
         div.empty();
 

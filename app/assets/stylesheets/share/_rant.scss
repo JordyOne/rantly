@@ -14,7 +14,8 @@
   padding: 5px;
   flex-grow: 0;
   flex-shrink: 0;
-  max-width: 80%;
+  max-width: 100%;
+  min-width: 100%;
   overflow: hidden;
 }
 
@@ -27,16 +28,6 @@
   flex-shrink: 0;
   max-width: 80%;
   overflow: hidden;
-}
-
-.flex-item-favorite-button {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  border-radius: 5px;
-  padding: 15px;
-  flex-grow: 0;
-  flex-shrink: 0;
 }
 
 .favorite-button {

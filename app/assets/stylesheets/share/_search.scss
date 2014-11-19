@@ -1,0 +1,25 @@
+.flex-item-search_form {
+  display: flex;
+  min-width: 90%;
+  justify-content: center;
+  padding: 10px;
+}
+
+.flex-container-search-rant-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: stretch;
+}
+
+.flex-container-search-rant {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: stretch;
+}
