@@ -6,7 +6,7 @@
           <h1><%= link_to full_name(rant.user), user_profile_path(@user, rant.user.id) %></h1>
         </div>
         <div class="flex-item-rant">
-          <p><%= link_to rant.text, user_rant_path(@dashboard.user, rant.id) %></p>
+          <p><%= link_to truncate(rant.text, length: 300), user_rant_path(@dashboard.user, rant.id) %></p>
           <br/>
         </div>
       </div>

@@ -22,7 +22,7 @@ class Dashboard
   end
 
   def latest_rants
-    Rant.where.not(user_id: @user.id).order(:updated_at).limit(10)
+    Rant.where.not(user_id: @user.id).order(:updated_at).reverse[0...10]
   end
 
   def user_rants
