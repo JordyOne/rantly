@@ -21,6 +21,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'foreman'
 end
+gem 'thin'
 
 gem 'bcrypt', '~> 3.1.7'
 
