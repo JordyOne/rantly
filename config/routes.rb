@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :relationships, only: [:create, :destroy]
-    resources :rants, only: [:create, :destroy, :show]
+    resources :rants, only: [:create, :destroy, :show] do
+      resources :comments, only: [:create, :destroy]
+    end
     resources :profiles, only: [:show] do
       resources :rants, only: [:show]
     end
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get  '/users/:user_id/favorites/', to: 'favorites#index', as: 'favorites'
+  get '/users/:user_id/favorites/', to: 'favorites#index', as: 'favorites'
   post '/favorites/:id', to: 'favorites#create', as: 'favorite'
   delete '/favorites/:id', to: 'favorites#destroy'
 

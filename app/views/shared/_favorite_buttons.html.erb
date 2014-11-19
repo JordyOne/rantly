@@ -1,5 +1,5 @@
 <% if user.favorite?(rant) %>
-    <span class="favorite-stats"><span class='<%= rant.favorites.count - 1 %> favorite-count'><%= rant.favorites.count %></span></span>
+    <span class="favorite-stats"><span class='favorite-count' data-count="<%= rant.favorites.count -1%>"><%= rant.favorites.count %></span></span>
     <%= link_to 'Unfavorite', favorite_path(rant), method: 'DELETE', class: 'rant-link unfavorite-button-link' %>
 <% else %>
     <span class="favorite-stats"><span class='favorite-count' data-count="<%= rant.favorites.count %>"><%= rant.favorites.count %></span></span>

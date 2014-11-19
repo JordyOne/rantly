@@ -52,4 +52,8 @@ class Dashboard
   def mentioned_rants
     Rant.where('text LIKE ?', "%@"+"#{@user.username}"+"%")
   end
+
+  def new_comment
+    Comment.new
+  end
 end

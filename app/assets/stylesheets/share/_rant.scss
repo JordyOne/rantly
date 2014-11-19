@@ -1,6 +1,6 @@
 .flex-container-rant {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-content: center;
@@ -48,5 +48,11 @@
 .rant-title {
   font-size: 15px;
 
+}
+
+.flex-item-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
 }
 
