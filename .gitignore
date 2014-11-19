@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore s3 credentials
-/.env
+.env
