@@ -8,7 +8,7 @@
       <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
     </div>
     <div class="flex-item-followed">
-      <%= link_to 'Tweet This', "https://twitter.com/share?text=Check out this rant on Rant.ly: ", :target => "_blank", class: "tweet_button" %>
+      <%= link_to 'Tweet This', "https://twitter.com/share?text=#{rant.title}: ", :target => "_blank", class: "tweet_button" %>
     </div>
     <div class="flex-item-followed">
       <% if dashboard.current_user_spam? %>
