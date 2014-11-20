@@ -13,10 +13,17 @@
     <div>
       <%= link_to "Search", searches_path, class: "header_link_styling header-button" %>
     </div>
-  </div>
+  </div>s
   <div class="flex-item-dashboard-button">
     <div>
       <%= link_to "Favorites", favorites_path(session[:user_id]), class: "header_link_styling header-button" %>
     </div>
   </div>
+  <% if admin?(session[:user_id]) %>
+      <div class="flex-item-dashboard-button">
+        <div>
+          <%= link_to "Admin", admin_path(session[:user_id]), class: "header_link_styling header-button" %>
+        </div>
+      </div>
+  <% end %>
 </div>

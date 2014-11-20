@@ -7,8 +7,8 @@
 
 .flex-container-search-rant-form {
   display: flex;
-  flex-direction: column;
-  min-width: 100%;
+  flex-direction: row;
+  min-width: 80%;
   flex-wrap: nowrap;
   justify-content: center;
   align-content: center;
@@ -22,4 +22,20 @@
   justify-content: space-between;
   align-content: center;
   align-items: stretch;
+  border-bottom: solid 1px;
+}
+
+#search-body {
+  flex-basis: 60%;
+  background: white;
+  height: 85%;
+  margin-top: 15px
+}
+
+.search-form {
+  display: flex;
+  min-height: 100px;
+  padding: 10px;
+  justify-content: center;
+  align-content: center;
 }

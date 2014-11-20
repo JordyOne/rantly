@@ -1,20 +1,28 @@
 <% dashboard.user_favorites.each do |favorite| %>
     <div class="flex-container-rant">
-
       <div class="flex-container-user-profile">
-        <div class="flex-item-profile-rant-title rant-title">
-          <h1><%= favorite.rant.title.capitalize %></h1>
-        </div>
         <%= image_tag favorite.rant.user.avatar.url(:square), class: "footer-image" %>
+        <div class="flex-container-follower">
+          <div class="flex-item-profile-rant-title rant-title">
+            <h1><%= favorite.rant.title.capitalize %></h1>
+          </div>
+          <div class="flex-item-profile-rant-title">
+            <%= full_name(favorite.rant.user) %>
+          </div>
+        </div>
 
         <div class="flex-item-rant">
           <%= link_to markdown(favorite.rant.text), user_rant_path(@dashboard.user, favorite.rant.id) %>
           <br/>
         </div>
       </div>
-      <div class="flex-item-favorite-button favorite-button">
-        <%= render partial: 'shared/favorite_buttons', locals: {rant: favorite.rant, user: @dashboard.user} %>
-        <br/>
+      <div class="flex-item-buttons favorite-button">
+        <div>
+          <%= render partial: 'shared/favorite_buttons', locals: {rant: favorite.rant, user: dashboard.user} %>
+        </div>
+        <div>
+          <%= render partial: 'shared/follow_link', locals: {user: dashboard.user, other_user: favorite.rant.user} %>
+        </div>
       </div>
     </div>
 <% end %>

@@ -1,7 +1,7 @@
-<div class="flex-container-body" id="user-profile">
+<div class="flex-container-body">
   <%= render partial: "shared/sidebar", locals: {dashboard: @dashboard} %>
 
-  <div class="flex-container-follower" id="user-body">
+  <div class="flex-container-followed" id="user-body">
     <%= render partial: "users/followed_users", locals: {dashboard: @dashboard} %>
   </div>
 </div>

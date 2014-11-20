@@ -25,4 +25,8 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def admin?(session_id)
+    User.find_by(id: session_id).admin  #d on't know where to put this and work.
+  end
 end

@@ -58,6 +58,6 @@ class Dashboard
   end
 
   def current_user_spam?
-    spam = Spam.find_by(user_id: user.id, rant_id: current_rant.id)
+    Spam.find_by(user_id: user.id, rant_id: current_rant.id)
   end
 end

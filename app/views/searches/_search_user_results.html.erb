@@ -2,8 +2,13 @@
     <% user.rants.each do |rant| %>
         <div class="flex-container-search-rant">
           <div class="flex-container-user-profile">
-            <div class="flex-item-profile-rant-title rant-title">
-              <h1><%= rant.title.capitalize %></h1>
+            <div class="flex-container-follower">
+              <div class="flex-item-profile-rant-title rant-title">
+                <h1><%= rant.title.capitalize %></h1>
+              </div>
+              <div class="flex-item-profile-rant-title rant-title">
+                <h1><%= full_name(rant.user) %></h1>
+              </div>
             </div>
             <%= image_tag rant.user.avatar.url(:square), class: "footer-image" %>
 

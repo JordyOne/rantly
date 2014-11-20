@@ -18,9 +18,12 @@ article {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  min-width: 100%;
   justify-content: center;
   align-content: center;
   align-items: stretch;
+  background: #939494;
+
 }
 
 .flex-container-footer {
@@ -34,7 +37,7 @@ article {
 
 .flex-container-follower {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-content: center;
@@ -42,12 +45,23 @@ article {
   padding: 30px;
 }
 
+.flex-container-followed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: stretch;
+  padding: 30px;
+  min-width: 50%;
+}
+
 .flex-container-user-profile {
   display: flex;
   min-width: 60%;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: flex-start;
   align-items: stretch;
   padding: 10px;

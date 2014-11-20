@@ -1,14 +1,5 @@
-<h1 class="rant-title-styling"><%= full_name(dashboard.profile_user) %></h1>
-<hr/>
-<div class="flex-container-follower">
-  <%= image_tag dashboard.profile_user.avatar.url(:square), class:"footer-image" %>
 
-  <h1 class="rant-title-styling"><%= dashboard.profile_user.frequency %> Ranter</h1>
-</div>
 
-<div class="flex-container-rant">
-  <div class="flex-item-bio">
-    <p><%= dashboard.profile_user.bio %></p>
-  </div>
-</div>
 <%= render partial: "user_rants", locals: {dashboard: dashboard} %>
+
+

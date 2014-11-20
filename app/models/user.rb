@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
     self.favorites.find_by(rant_id: rant_id)
   end
 
+  def admin?(session_id)
+    User.find_by(id: session_id).admin
+  end
+
 end
