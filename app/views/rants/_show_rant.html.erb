@@ -13,7 +13,7 @@
     <div class="flex-item-followed">
       <% if dashboard.current_user_spam? %>
           <%= link_to 'Unspam', spam_user_rant_path(dashboard.user.id, rant.id), method: 'DELETE', class: "spam_button" %>
-    <% else %>
+      <% else %>
           <%= link_to 'Spam', spam_user_rant_path(dashboard.user.id, rant.id), method: 'PATCH', class: "spam_button" %>
       <% end %>
     </div>
@@ -25,12 +25,37 @@
       <br/>
     </div>
   </div>
-  <div class="flex-item-favorite-button favorite-button">
-    <% if rant.user_id != current_user.id %>
-        <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: dashboard.user} %>
+  <% if rant.user_id != current_user.id %>
+      <div class="flex-item-buttons favorite-button">
+        <div>
+          <%= render partial: 'shared/favorite_buttons', locals: {rant: rant, user: @dashboard.user} %>
         </div>
-        <div class="flex-item-center">
-          <%= render partial: "shared/follow_link", locals: {user: dashboard.user, other_user: rant.user} %>
-        </div>
-    <% end %>
-    </div>
+        <br/>
+        <%= render partial: 'shared/follow_link', locals: {user: @dashboard.user, other_user: rant.user} %>
+      </div>
+
+      <h1 class="comment-title-styling">comments</h1>
+
+      <hr/>
+      <% if rant.comments %>
+          <% rant.comments.limit(2).each do |comment| %>
+              <div class="flex-container-user-profile">
+
+                <div class="flex-item-profile-rant-title rant-title">
+                  <h1><%= link_to full_name(comment.user), user_profile_path(@dashboard.user, rant.user.id) %></h1>
+                </div>
+
+                <div class="flex-item-rant">
+                  <p><%= link_to markdown(truncate(comment.text, length: 300, omission: '... (read more)')), user_rant_path(@dashboard.user, rant.id) %></p>
+                  <br/>
+                </div>
+              </div>
+          <% end %>
+
+      <% end %>
+      <div class="flex-item-buttons favorite-button">
+        <%= render partial: 'shared/comment_form', locals: {rant: rant, dashboard: @dashboard} %>
+      </div>
+      <hr/>
+  <% end %>
+</div>

@@ -31,6 +31,9 @@
           <%= render partial: 'shared/follow_link', locals: {user: dashboard.user, other_user: rant.user} %>
         </div>
       </div>
+      <div class="flex-item-buttons favorite-button">
+        <%= render partial: 'shared/comment_form', locals: {rant: rant, dashboard: @dashboard} %>
+      </div>
   <% end %>
 </div>
 

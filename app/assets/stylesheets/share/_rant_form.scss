@@ -21,6 +21,28 @@
   min-height: 20px;
 }
 
+.comment-user-form {
+  display: flex;
+  min-width: 100%;
+  padding: 5px;
+  form {
+    min-width: 100%;
+  }
+}
+
+.rant-btn {
+  padding: 5px;
+}
+.rant-comment-input {
+    display: flex;
+    width: 100%;
+  padding: 5px;
+  }
+
+.rant-title-input {
+  min-width: 80%;
+}
+
 #rant-submit-button {
     width: 150px;
     height: 30px;

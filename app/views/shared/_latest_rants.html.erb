@@ -26,7 +26,7 @@
 
       <hr/>
       <% if rant.comments %>
-          <% rant.comments.each do |comment| %>
+          <% rant.comments.limit(2).each do |comment| %>
               <div class="flex-container-user-profile">
 
                 <div class="flex-item-profile-rant-title rant-title">

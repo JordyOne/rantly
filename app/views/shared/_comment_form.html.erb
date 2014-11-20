@@ -1,17 +1,10 @@
-<div class="rant-user-form">
-  <table>
-    <%= form_for [dashboard.user, rant, dashboard.new_comment] do |f| %>
-        <tr>
-          <td>
-            <%= f.text_area :text, :placeholder => "Rant Back!", :class => 'rant_title_input' %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= f.submit class: "rant-btn" %>
-          </td>
-        </tr>
-    <% end %>
-  </table>
-  <br>
+<div class="comment-user-form">
+  <%= form_for [dashboard.user, rant, dashboard.new_comment] do |f| %>
+      <div>
+        <%= f.text_area :text, :placeholder => "Rant Back!", :class => 'rant-comment-input' %>
+      </div>
+      <div>
+        <%= f.submit class: "rant-btn" %>
+      </div>
+  <% end %>
 </div>
