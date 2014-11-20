@@ -13,9 +13,10 @@ Rails.application.routes.draw do
       resources :rants, only: [:show]
     end
     member do
-      get :followers, :following
+      get :followers, :following, :admin
     end
   end
+
 
   delete '/users/:user_id/rants/:id/spam', to: 'rants#unspam'
 
