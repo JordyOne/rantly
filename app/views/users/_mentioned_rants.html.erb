@@ -1,5 +1,23 @@
 <% rants.each do |rant| %>
     <div class="single-rant">
-      <%= link_to markdown(rant.text), user_rant_path(rant.id)%><br>
+      <%= full_name(rant.user) %>
+      <%= link_to markdown(rant.text), user_rant_path(@dashboard.user.id, rant.id)%><br>
+      <% if rant.comments %>
+          <% rant.comments.each do |comment| %>
+              <div class="flex-container-user-profile">
+
+                <div class="flex-item-profile-rant-title rant-title">
+                  <h1><%= link_to full_name(comment.user), user_profile_path(@dashboard.user, rant.user.id) %></h1>
+                </div>
+
+                <div class="flex-item-rant">
+                  <p><%= link_to markdown(truncate(comment.text, length: 300, omission: '... (read more)')), user_rant_path(@dashboard.user, rant.id) %></p>
+                  <br/>
+                </div>
+              </div>
+          <% end %>
+
+      <% end %>
     </div>
+
 <% end %>
