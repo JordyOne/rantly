@@ -8,6 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'spring', group: :development
 gem 'pg'
@@ -22,8 +23,6 @@ group :development, :test do
   gem 'foreman'
 end
 gem 'thin'
-
-gem 'bcrypt', '~> 3.1.7'
 
 
 gem 'paperclip'

@@ -42,7 +42,7 @@ FAVORITE = {
         var href = FAVORITE.unfavoriteElement.attr('href');
 
         $("a[href='" + href + "']").each(function () {
-            FAVORITE.deincrementFavoriteCount(this);
+            FAVORITE.decrementFavoriteCount(this);
             $(this).text('Favorite');
             FAVORITE.favorite($(this));
         });
@@ -67,7 +67,7 @@ FAVORITE = {
         div.append(count);
     },
 
-    deincrementFavoriteCount: function (element) {
+    decrementFavoriteCount: function (element) {
         var div = $(element).siblings('span').find('.favorite-count');
         var count = (div.attr('data-count'));
 

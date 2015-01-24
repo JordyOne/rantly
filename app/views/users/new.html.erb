@@ -16,19 +16,19 @@
             <%= form.label :password %>
             <%= form.password_field :password %>
           </div>
-          <div>
+          <div class="flex">
             <%= form.label :first_name %>
             <%= form.text_field :first_name %>
           </div>
-          <div>
+          <div class="flex">
             <%= form.label :last_name %>
             <%= form.text_field :last_name %>
           </div>
-          <div>
+          <div class="flex">
             <%= form.label :bio %>
             <%= form.text_area :bio %>
           </div>
-          <div>
+          <div class="flex">
             <%= form.label "How often do you rant?" %>
             <br/>
 
@@ -42,11 +42,11 @@
             <%= form.radio_button :frequency, "Monthly" %>
           </div>
 
-          <div>
+          <div class="flex">
             <%= form.label :avatar %>
             <%= form.file_field :avatar %>
           </div>
-          <div>
+          <div class="flex">
             <%= form.submit %>
           </div>
 

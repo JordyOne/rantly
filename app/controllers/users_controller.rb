@@ -40,11 +40,11 @@ class UsersController < ApplicationController
   private
 
   def current_user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :bio, :frequency, :avatar, :name)
+    params.require(:user).permit(:username, :first_name, :last_name, :bio, :frequency, :avatar)
   end
 
   def allowed_params
-    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency, :avatar, :name)
+    params.require(:user).permit(:username, :password, :first_name, :last_name, :bio, :frequency, :avatar)
   end
 
   def login_user
