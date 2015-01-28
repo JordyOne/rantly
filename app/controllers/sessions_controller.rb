@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = current_user
+    @user = current_user_by_username
     if @user && @user.authenticate(allowed_parameters[:password])
       sign_in_user
     else
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(current_user)
+    @user = current_user
   end
 
   def destroy
@@ -26,8 +26,8 @@ class SessionsController < ApplicationController
 
   private
 
-  def current_user
-    User.find_by(username: allowed_parameters[:username])
+  def current_user_by_username
+    User.find_by_username(allowed_params[:username])
   end
 
   def sign_in_user
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
     redirect_to dashboard_path(current_user)
   end
 
-  def allowed_parameters
+  def allowed_params
     params.require(:user).permit(:username, :password)
   end
 

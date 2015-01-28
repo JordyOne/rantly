@@ -11,5 +11,10 @@ class ApplicationController < ActionController::Base
       @user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def admin?(session_id)
+    User.find_by(id: session_id).admin
+  end
+
   helper_method :current_user
+  helper_method :admin?
 end
